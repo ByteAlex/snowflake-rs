@@ -13,6 +13,10 @@ impl Into<u64> for Snowflake {
     }
 }
 
+impl Into<String> for Snowflake {
+    fn into(self) -> String { self.0.to_string() }
+}
+
 impl From<u64> for Snowflake {
     fn from(value: u64) -> Self {
         Self(value)
@@ -22,6 +26,12 @@ impl From<u64> for Snowflake {
 impl AsRef<u64> for Snowflake {
     fn as_ref(&self) -> &u64 {
         &self.0
+    }
+}
+
+impl AsRef<str> for Snowflake {
+    fn as_ref(&self) -> &str {
+        self.to_string().as_str()
     }
 }
 
@@ -40,6 +50,10 @@ impl Snowflake {
         } else {
             Option::Some(self)
         }
+    }
+
+    pub fn to_string(&self) -> String {
+        self.0.to_string()
     }
 }
 
