@@ -31,7 +31,8 @@ impl AsRef<u64> for Snowflake {
 
 impl AsRef<str> for Snowflake {
     fn as_ref(&self) -> &str {
-        self.to_string().as_str()
+        let str = self.to_string();
+        str.as_str()
     }
 }
 
